@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Album</title>
+    <link rel="stylesheet" type="text/css" href="songr.css">
 </head>
 <body>
 <h1>Albums</h1>
+<ul>
+    <li th:each="album:${albumList}">
+    <p th:text="${album}"></p>
+        <img th:src="${album.imageUrl}"></img>
+    </li>
+</ul>
 
 </body>
 </html>
