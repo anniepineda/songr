@@ -1,4 +1,4 @@
-#Building Full-Stack Web Apps
+# Building Full-Stack Web Apps
 - App runs on Spring
 - App has a hello world route at /hello, and ensure that you can visit that route in your browser and see a rendered
  template come back.
