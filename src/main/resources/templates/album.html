@@ -6,6 +6,15 @@
     <link rel="stylesheet" type="text/css" href="songr.css">
 </head>
 <body>
+<form action="/albums" method="POST">
+    <h2>Add A New Album</h2>
+     Title: <input type="text" name="albumName">
+     Artist: <input type="text" name="reason">
+     Song Count: <input type="number" name="strength">
+     Length:
+     Image:
+    <input type="submit">
+</form>
 <h1>Albums</h1>
 <ul>
     <li th:each="album:${albumList}">
@@ -16,3 +25,4 @@
 
 </body>
 </html>
+
