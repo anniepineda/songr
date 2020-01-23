@@ -6,15 +6,31 @@
     <link rel="stylesheet" type="text/css" href="songr.css">
 </head>
 <body>
+
 <form action="/albums" method="POST">
     <h2>Add A New Album</h2>
      Title: <input type="text" name="albumName">
-     Artist: <input type="text" name="reason">
-     Song Count: <input type="number" name="strength">
+     Artist: <input type="text" name="artist">
+     Song Count: <input type="number" name="songCount">
      Length:
      Image:
     <input type="submit">
 </form>
+
+<!--            https://stackoverflow.com/questions/16119421/thymeleaf-concatenation-could-not-parse-as-expression-->
+<form action="/album" method="POST">
+    <h2>Add an Album</h2>
+    <input type="hidden" th:value="${album.id}" name="id">
+    Title: <input type="text" name="albumName">
+    Artist: <input type="text" name="artist">
+    <input type="submit" value="add album">
+</form>
+
+
+<form th:action="'/albums/delete/' + ${album.id}" method="POST">
+    <button type="submit">Add Me!</button>
+</form>
+
 <h1>Albums</h1>
 <ul>
     <li th:each="album:${albumList}">
