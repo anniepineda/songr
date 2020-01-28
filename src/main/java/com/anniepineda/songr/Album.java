@@ -2,6 +2,7 @@ package com.anniepineda.songr;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -9,7 +10,10 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    public long id;
+
+    @OneToMany(mappedBy = "album")
+    public List<Song> song;
 
     public String  title;
     public String artist;
@@ -35,6 +39,9 @@ public class Album {
         return this.title + " " + this.artist + " " + this.songCount + " " + this.length + " ";
     }
 
+    public long getId(){
+        return id;
+    }
 
 }
 
