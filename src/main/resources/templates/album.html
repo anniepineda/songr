@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="songr.css">
 </head>
 <body>
+
 <form action="/albums" method="POST">
     <h2>Add A New Album</h2>
      Title: <input type="text" name="albumName">
@@ -16,28 +17,15 @@
     <input type="submit">
 </form>
 
+
 <form action="/song" method="POST">
-    <h2>Add A Song</h2>
-    <input type="hidden" th:value="${album}" name="id">
+    <h2>Add A Song To An Album</h2>
     Title: <input type="text" name="title">
     Album: <input type="text" name="album">
-    Length: <input type="int" name="length">
-    Track Number: <input type="int" name="trackNumber">
+    Length: <input type="number" name="length">
+    Track Number: <input type="number" name="trackNumber">
     <input type="submit" value="Add Song">
 </form>
-
-
-
-
-<h2>Songs</h2>
-<ul>
-    <li th:each="song:${songList}">
-        <p th:text="${song}"></p>
-
-    </li>
-</ul>
-
-
 
 
 
@@ -45,7 +33,9 @@
 <ul>
     <li th:each="album:${albumList}">
     <p th:text="${album}"></p>
-        <img th:src="${album.imageUrl}"></img>
+        <img th:src="${album.imageUrl}">
+        <a th:href="'/albums/' + ${album.id}">[[${album.title}]] Details</a>
+
         <form th:action="'/albums/delete/' +${album.id}" method="POST">
             <button>Delete This Album</button>
         </form>

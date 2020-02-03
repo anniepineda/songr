@@ -1,6 +1,6 @@
 package com.anniepineda.songr;
 
-
+import com.sun.javafx.beans.IDProperty;
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
+    public Long id;
 
     @OneToMany(mappedBy = "album")
     public List<Song> song;
@@ -37,10 +37,6 @@ public class Album {
     @Override
     public String toString(){
         return this.title + " " + this.artist + " " + this.songCount + " " + this.length + " ";
-    }
-
-    public long getId(){
-        return id;
     }
 
 }

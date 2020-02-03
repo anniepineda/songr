@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album Details</title>
+</head>
+<body>
+
+    <h2>Album Details</h2>
+    <span th:text="${album.title}"></span>
+    <span th:text="${album.artist}"></span>
+    <span th:text="${album.songCount}"></span>
+    <span th:text="${album.length"}></span>
+    <span th:src="${album.imageUrl}"></span>
+
+    <h2>Songs</h2>
+    <ul>
+        <li th:each="song:${songList}">
+            <p th:text="${song}"></p>
+        </li>
+    </ul>
+
+
+    <form action="/song" method="POST">
+        <h2>Add A Song To An Album</h2>
+        Title: <input type="text" name="title">
+        Album: <input type="text" name="album">
+        Length: <input type="number" name="length">
+        Track Number: <input type="number" name="trackNumber">
+        <input type="submit" value="Add Song">
+    </form>
+
+
+</body>
+</html>

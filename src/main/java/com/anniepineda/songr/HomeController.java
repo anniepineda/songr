@@ -1,5 +1,8 @@
 package com.anniepineda.songr;
 
+//import org.graalvm.compiler.nodes.java.NewArrayNode;
+//import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,10 +62,28 @@ public class HomeController {
 
 }
 
+@GetMapping("/albums/{id}")
+public String albumDetails(@PathVariable long id, Model m){
+        Album album = albumRepository.findById(id).get();
+        m.addAttribute("album", album);
+        Song song = songRepository.findSongByAlbum(id);
+        m.addAttribute("song", song);
+        return "albumDetails";
+}
+
+
+@GetMapping("/album-details")
+public String song(Model m){
+        List<Song> song = songRepository.findAll();
+        m.addAttribute("song", song);
+        return "album-details";
+}
+
+
 @PostMapping("/song")
-    public RedirectView addSong(long id, String title, String Album, int length, int trackNumber){
-        Album existingAlbum = albumRepository.getOne(id);
-        Song newSong = new Song(title, Album, length, trackNumber);
+    public RedirectView addSong(long id,String title, String album, int length, int trackNumber){
+        Album existingAlbum = albumRepository.findAlbumByTitle(title);
+        Song newSong = new Song(title, album, length, trackNumber);
         newSong.album = existingAlbum;
         songRepository.save(newSong);
         return new RedirectView("/albums");

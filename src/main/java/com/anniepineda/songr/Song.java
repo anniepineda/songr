@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    Long id;
 
     @ManyToOne
     Album album;
@@ -17,7 +17,9 @@ public class Song {
     int length;
     int trackNumber;
 
-    //use Album or album?????
+    public Song(){}
+
+
     public Song(String title, String Album, int length, int trackNumber){
         this.title = title;
         this.Album = Album;
@@ -25,13 +27,30 @@ public class Song {
         this.trackNumber = trackNumber;
     }
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getTrackNumber() {
+        return trackNumber;
+    }
+
+
+
     @Override
     public String toString(){
-        return "Just added" + this.title + "from the album" + this.Album + "the song is" + this.length + "long and the track number is" + this.trackNumber;
+        return "Just added" + this.title + "from the album" + this.Album + "the song is" + this.length +
+                "long and the track number is" + this.trackNumber;
     }
 
-    public Song(){
-
-    }
 
 }
