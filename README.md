@@ -10,3 +10,7 @@
 - An Album has a title, an artist, a songCount, a length (in seconds), and an imageUrl that is a link to that album’s
  art.
 - App has a route at /albums that shows three album instances.
+- A user is be able to see information about all the songs on the site.
+- A user is be able to view a page with data about one particular album.
+- A user is be able to add songs to an album.
+- A user is be able to see the songs that belong to an album when looking at that album.
