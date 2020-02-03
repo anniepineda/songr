@@ -1,4 +1,4 @@
-#Building Full-Stack Web Apps
+# Building Full-Stack Web Apps
 - App runs on Spring
 - App has a hello world route at /hello, and ensure that you can visit that route in your browser and see a rendered
  template come back.
@@ -14,3 +14,4 @@
 - A user is be able to view a page with data about one particular album.
 - A user is be able to add songs to an album.
 - A user is be able to see the songs that belong to an album when looking at that album.
+
